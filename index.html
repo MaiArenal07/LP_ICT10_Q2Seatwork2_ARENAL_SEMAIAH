@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            background-color: #dfefff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-card {
+            max-width: 600px;
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 6px solid #2563eb;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 600;
+            color: #1e3a8a;
+            width: 150px;
+        }
+        .label-style {
+            background-color: #e8f0ff;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 8px;
+        }
+        .btn-primary {
+            background-color: #2563eb;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+        }
+        .btn-secondary {
+            background-color: #64748b;
+            border: none;
+        }
+        .result-box {
+            background-color: #eef6ff;
+            border-left: 5px solid #2563eb;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .final-result {
+            background-color: #fff4cc;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color:#1e3a8a;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="#">Something something</a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="main-card">
+    <h1>Student Grade Calculator</h1>
+
+  
+    <div class="mb-3">
+        <label>First Name:</label>
+        <input type="text" class="form-control" id="first" placeholder="Enter your first name">
+    </div>
+    <div class="mb-3">
+        <label>Last Name:</label>
+        <input type="text" class="form-control" id="last" placeholder="Enter your last name">
+    </div>
+
+   
+    <h5 class="text-primary mb-3">Enter your grades:</h5>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label class="label-style">English:</label>
+            <input type="number" class="form-control" id="english">
+        </div>
+        <div class="col-6 mb-3">
+            <label class="label-style">Math:</label>
+            <input type="number" class="form-control" id="math">
+        </div>
+        <div class="col-6 mb-3">
+            <label class="label-style">Science:</label>
+            <input type="number" class="form-control" id="science">
+        </div>
+        <div class="col-6 mb-3">
+            <label class="label-style">SS:</label>
+            <input type="number" class="form-control" id="ss">
+        </div>
+        <div class="col-6 mb-3">
+            <label class="label-style">Filipino:</label>
+            <input type="number" class="form-control" id="filipino">
+        </div>
+        <div class="col-6 mb-3">
+            <label class="label-style">ICT:</label>
+            <input type="number" class="form-control" id="ict">
+        </div>
+    </div>
+
+   
+    <button class="btn btn-primary w-100 mb-2" py-click="compute_average">Calculate GWA</button>
+    <button class="btn btn-secondary w-100" onclick="resetForm()">Reset</button>
+
+  
+    <div id="grades_container" class="result-box" style="display:none;">
+        <div id="name"></div>
+        <p>English: <span id="english_output"></span></p>
+        <p>Math: <span id="math_output"></span></p>
+        <p>Science: <span id="science_output"></span></p>
+        <p>SS: <span id="ss_output"></span></p>
+        <p>Filipino: <span id="filipino_output"></span></p>
+        <p>ICT: <span id="ict_output"></span></p>
+        <div id="output" class="final-result"></div>
+    </div>
+</div>
+
+<script>
+function resetForm() {
+    ["first","last","english","math","science","ss","filipino","ict"].forEach(id => {
+        document.getElementById(id).value = "";
+    });
+    document.getElementById("grades_container").style.display = "none";
+}
+</script>
+
+<script type="py" src="main.py"></script>
+</body>
+</html>
